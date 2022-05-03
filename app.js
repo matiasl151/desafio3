@@ -1,16 +1,16 @@
 const express = require('express');
 const controladoresApi = require('./controllers/controladoresApi');
+const controladoresWeb = require('./controllers/controladoresWeb');
 const app = express();
-const port = 8080;
+const PORT = 8080;
 
-app.get('/', (req, res) => {
-    res.send('Inicio')
-})
+app.get('/', controladoresWeb.root);
+app.get('/inicio', controladoresWeb.inicio);
+app.get('/productos', controladoresApi.productos);
+app.get('/productoRandom', controladoresApi.productoRandom);
 
-app.get('/productos', controladoresApi.productos)
 
-
-const server = app.listen(port, () => {
-    console.log(`Escuchando en el puerto ${port}`);
-})
-server.on('error', error => {console.log(error.message)})
+const server = app.listen(PORT, () => {
+    console.log(`Escuchando en el puerto ${server.address().port}`);
+});
+server.on('error', error => {console.log(error.message)});
