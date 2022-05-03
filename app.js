@@ -1,13 +1,13 @@
-const { controladoresApi } = require('./controllers/controladoresApi');
 const express = require('express');
+const controladoresApi = require('./controllers/controladoresApi');
 const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    res.send('Inicio')
 })
 
-app.get('/productos', controladoresApi.productos);
+app.get('/productos', controladoresApi.productos)
 
 
 const server = app.listen(port, () => {
