@@ -40,15 +40,6 @@ class ContenedorArchivo {
             console.log('No se pudo obtener los productos, error: ', error.message);
             return []
         }
-
-        // try {
-        //     let data = await fs.readFile(this.path, 'utf-8')
-        //     // console.log(data)
-        //     let dataJson = JSON.parse(data)
-        //     return dataJson
-        // } catch (e) {
-        //     return []
-        // }
     }
 
     async deleteById(id) {
