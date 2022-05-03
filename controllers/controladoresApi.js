@@ -1,14 +1,17 @@
 const ContenedorArchivo = require('../assets/contenedorArchivo.js');
-const contenedor = new ContenedorArchivo('../assets/productos.txt')
+const contenedor = new ContenedorArchivo('./controllers/productos.txt')
 
 const controladoresApi = {
 
     productos : async (req, res) => {
-        await res.json(contenedor.getAll());
+        const prod = await contenedor.getAll()
+        res.send(JSON.stringify(prod, null, 4))
     },
-    // productosRandom: (res, req) => {
-    //     res.json(contenedorArchivos.getAll());
-    // }
+
+    productoRandom : async (req,res) => {
+        const producto = await contenedor.getById()
+    }
+    
 }
 
 module.exports = controladoresApi;
